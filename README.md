@@ -2,8 +2,10 @@
 
 This repository contains sample files (Maple, Maxima, and Python) that may be used for calculating the small-sample bias of the Kaplan-Meier Estimator. 
 
-## For Python
+## For Python (Jupyter Notebook)
+Please use the following link to a Binder server:  
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/justineuro/KM-bias/9e36a2b2b553672faabffa341ff810520907672d?urlpath=lab%2Ftree%2Fkm-n5-e1e1t1.ipynb)
 
 ## License
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
