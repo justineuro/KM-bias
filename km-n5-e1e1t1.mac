@@ -1,0 +1,100 @@
+/* Maxima Version of Your Maple Code */
+
+debugmode(true);
+fpprec : 50$
+linel : 101$
+
+N : 5;
+T : 1.0;
+
+/* Define pdfs */
+pdf1(x) := exp(-x);
+pdf2(y) := exp(-y);
+
+/* Define fa, fb, fab as derivatives of nested integrals */
+assume (t > 0);
+fa(t) := diff(integrate(integrate(pdf1(x)*pdf2(y), x, y, inf), y, 0, t), t);
+fb(t) := diff(integrate(integrate(pdf1(x)*pdf2(y), y, x, inf), x, 0, t), t);
+fab(t) := fa(t) + fb(t);
+
+/* Main nested loops */
+Gm : 0;
+
+/* Case i=0; Gshat = 1; Pw = P(X > t)^N * P(Y > t)^N */
+Gshat : 1;
+Gm : 0;
+cdf1(x) := integrate(pdf1(t), t, 0, x);
+cdf2(y) := integrate(pdf2(t), t, 0, y);
+Gm : Gm + Gshat * (1 - cdf1(T))^N*(1 - cdf2(T))^N;
+results : [["i", "j", "ds", "d", "Gshat", "Pw", "+Gm", "GmTot"]];
+results : endcons([0, 0, apply('sconcat,makelist(0,i,N)), "null", 1, (1 - cdf1(T))^N * (1 - cdf2(T))^N, Gshat * (1 - cdf1(T))^N*(1 - cdf2(T))^N, Gm], results);
+
+load("quantum_computing");
+for i:1 step 1 thru N do (
+  for j:0 step 1 thru (2^i - 1) do (
+
+    /* Convert j to binary string with leading zero padding */
+    bj : binlist(j),
+    lbj : length(bj),
+    /* if j = 0 then lbj : 1, */ /* not needed in maxima */
+
+    /* Initialize Pw and Gshat */
+    Pw : 1,
+    Gshat : 1,
+
+    /* First stage: integrate fa over k1 */
+    for k1:1 step 1 thru (i - lbj) do (
+      Pw : integrate(Pw * fa(concat('t, k1)), concat('t, k1), 0, concat('t, k1 + 1))
+    ),
+    
+    /* Second stage: loop over binary digits and integrate fa or fb */
+    for k2:(i - lbj + 1) step 1 thru i do (
+      d : charat(apply('concat, bj), k2 - i + lbj),  /* '0' or '1' */
+
+      fs : if d = "0" then fa(concat('t, k2))
+           else fb(concat('t, k2)),
+      
+      /* Update Gshat if fb is used */
+      if d = "1" then (
+        Gshat : Gshat * ((N - k2)/(N - k2 + 1))
+      ),
+      
+      /* Integrate accordingly */
+      if k2 < i then 
+        Pw : integrate(Pw * fs, concat('t, k2), 0, concat('t, k2 + 1))
+        else 
+        Pw : integrate(Pw * fs, concat('t, i), 0, t)
+    ),
+    
+    /* Final product over fab terms */
+    for k3:(i + 1) step 1 thru N do (
+      if k3 < N then (
+        Pw : integrate(Pw * fab(concat('t, k3)), concat('t, k3), t, concat('t, k3 + 1))
+      ) else if k3 = N then (
+        Pw : integrate(Pw * fab(concat('t, N)), concat('t, N), t, inf)
+      )
+    ),
+    
+    Gm : Gm + (N!*Pw)*Gshat,
+    tcodes : if (i-lbj>0) then apply('sconcat,[apply('concat,makelist(0,k,i-lbj)),apply('sconcat,binlist(j))])
+      else apply('sconcat,binlist(j)),
+    results : endcons([i, j, tcodes, d, Gshat, float(subst(T, t, N!*Pw)), Gshat*float(subst(T, t, N!*Pw)), float(subst(T, t, Gm))], results),
+    /* print("i=", i, "j=", j, "ds=", tcodes, "d=", d, " Pw_i = ", subst(T, t, N!*Pw), "Gm+=", subst(T,t,(N!*Pw)*Gshat), "Gm_i = ", subst(T, t, Gm)) */
+    print("i=", i, "j=", j, "ds=", tcodes, "Gshat=", float(Gshat))
+  ),
+  if i = N-1 then 
+    (KM_Efron : subst(T, t, Gm),
+    print("KM-Efron = ", float(KM_Efron)))
+);
+
+apply('matrix, float(results));
+
+/* sum(float(results[i][6]),i,2,2^(N+1)); */
+
+Gmf: subst(T, t, Gm);
+print("Exact S(",T,") = ", float(exp(-T)));
+print(sconcat("est. E[KM-Efron] (t=", T,") = "), float(KM_Efron));
+print(sconcat("est. E[KM-Gill] (t=", T,") = "), float(Gmf));
+print("KM-Efron Bias = ", float(KM_Efron - exp(-T)));
+print("KM-Gill Bias = ", float(Gmf - exp(-T)));
+print("End");
