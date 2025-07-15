@@ -1,6 +1,8 @@
 # KM-bias
 
-This repository contains sample files (Maple, Maxima, and Python) that may be used for calculating the small-maple bias of the Kaplan-Meier Estimator. 
+This repository contains sample files (Maple, Maxima, and Python) that may be used for calculating the small-sample bias of the Kaplan-Meier Estimator. 
+
+## For Python
 
 
 ## License
