@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText 8.0.0">
+<title>README-parens</title>
+<script type="text/x-mathjax-config">
+MathJax = {
+  tex: {
+    packages: ["base","require","enclose",], 
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script></head>
+<body>
+<h1>KM-bias</h1>
+<p>This repository contains sample files (Maple, Maxima, and Python) that may be used for calculating the small-sample bias of the Kaplan-Meier Estimator. </p>
+<h2>For Python (Jupyter Notebook)</h2>
+<p>Please use the following link below pointing to a <a href="https://mybinder.org">Binder</a> server:  </p>
+<p><a href="https://mybinder.org/v2/gh/justineuro/KM-bias/9e36a2b2b553672faabffa341ff810520907672d?urlpath=lab%2Ftree%2Fkm-n5-e1e1t1.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg"></a></p>
+<p><code>Jupyter</code> notebook files for <script type="math/tex">n=5,\ T=1.0</script>:<br>
+(<code>Jupyter</code> input file: <a href="./km-n5-e1e1t1.ipynb">km-n5-e1e1t1.ipynb</a>; <code>Jupyter</code> output file:  <a href="./km-n5-e1e1t1-out.ipynb">km-n5-e1e1t1-out.ipynb</a>)  </p>
+<hr>
+<h2>Computed Bias for <script type="math/tex">T = 0.5</script>
+</h2>
+<p>
+<script type="math/tex">n = 10</script>
+<br>
+Failure Time Distribution: <script type="math/tex">f_X(x) = \exp(-x),\ x>0</script>
+<br>
+Censoring Time Distribution: <script type="math/tex">f_Y(y) = \exp(-y),\ y>0</script>
+<br>
+Expected Lifetime: <script type="math/tex">\exp(-0.5) = 0.6065306597126334 </script>
+</p>
+<table>
+<thead>
+<tr>
+<th>Estimator</th>
+<th>Estimated Expected Value</th>
+<th>Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Efron</td>
+<td>
+<script type="math/tex"> 0.6048530839301303</script>
+</td>
+<td>
+<script type="math/tex">-0.00167757578250316</script>
+</td>
+</tr>
+<tr>
+<td>Gill</td>
+<td>
+<script type="math/tex">0.6066478084305761</script>
+</td>
+<td>
+<script type="math/tex">\hspace{12px}0.00011714871794266</script>
+</td>
+</tr>
+</tbody>
+</table>
+<p>(<code>Maxima</code> input file: <a href="./km-n10-e1e1t05.mac">km-n10-e1e1t05.mac</a>; <code>Maxima</code> output file:  <a href="./km-n10-e1e1t05-output.mac">km-n10-e1e1t05-output.mac</a>)<br>
+(<code>Maple</code> input file: <a href="./km-n10-e1e1t05-Efron.mws">km-n10-e1e1t05-Efron.mws</a>; <code>Maple</code> output file:  <a href="./km-n10-e1e1t05-Efron-out.mw">km-n10-e1e1t05-Efron-output.mw</a>)  </p>
+<hr>
+<h2>Computed Bias for <script type="math/tex">T = 1.0</script>
+</h2>
+<p>
+<script type="math/tex">n = 10</script>
+<br>
+Failure Time Distribution: <script type="math/tex">f_X(x) = \exp(-x),\ x>0</script>
+<br>
+Censoring Time Distribution: <script type="math/tex">f_Y(y) = \exp(-y),\ y>0</script>
+<br>
+Expected Lifetime: <script type="math/tex">\exp(-1.0) = 0.36787944117144233 </script>
+</p>
+<table>
+<thead>
+<tr>
+<th>Estimator</th>
+<th>Estimated Expected Value</th>
+<th>Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Efron</td>
+<td>
+<script type="math/tex"> 0.3339997005016279</script>
+</td>
+<td>
+<script type="math/tex">-0.03387974066981442</script>
+</td>
+</tr>
+<tr>
+<td>Gill</td>
+<td>
+<script type="math/tex">0.37515976194249184</script>
+</td>
+<td>
+<script type="math/tex">\hspace{12px}0.007280320771049509</script>
+</td>
+</tr>
+</tbody>
+</table>
+<p>(<code>Maxima</code> input file: <a href="./km-n10-e1e1t1.mac">km-n10-e1e1t1.mac</a>; <code>Maxima</code> output file:  <a href="./km-n10-e1e1t1-output.mac">km-n10-e1e1t1-output.mac</a>)<br>
+(<code>Maple</code> input file: <a href="./km-n10-e1e1t1-Efron.mws">km-n10-e1e1t1-Efron.mws</a>; <code>Maple</code> output file:  <a href="./km-n10-e1e1t1-Efron-out.mw">km-n10-e1e1t1-Efron-output.mw</a>)  </p>
+<hr>
+<h2>Computed Bias for <script type="math/tex">T = 2.0</script>
+</h2>
+<p>
+<script type="math/tex">n = 10</script>
+<br>
+Failure Time Distribution: <script type="math/tex">f_X(x) = \exp(-x),\ x>0</script>
+<br>
+Censoring Time Distribution: <script type="math/tex">f_Y(y) = \exp(-y),\ y>0</script>
+<br>
+Expected Lifetime: <script type="math/tex">\exp(-2.0) = 0.1353352832366127 </script>
+</p>
+<table>
+<thead>
+<tr>
+<th>Estimator</th>
+<th>Estimated Expected Value</th>
+<th>Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Efron</td>
+<td>
+<script type="math/tex"> 0.06114801462318425</script>
+</td>
+<td>
+<script type="math/tex">-0.07418726861342845</script>
+</td>
+</tr>
+<tr>
+<td>Gill</td>
+<td>
+<script type="math/tex">0.20760745229019978</script>
+</td>
+<td>
+<script type="math/tex">\hspace{12px}0.07227216905358708</script>
+</td>
+</tr>
+</tbody>
+</table>
+<p>(<code>Maxima</code> input file: <a href="./km-n10-e1e1t2.mac">km-n10-e1e1t2.mac</a>; <code>Maxima</code> output file:  <a href="./km-n10-e1e1t2-output.mac">km-n10-e1e1t2-output.mac</a>)<br>
+(<code>Maple</code> input file: <a href="./km-n10-e1e1t2-Efron.mws">km-n10-e1e1t2-Efron.mws</a>; <code>Maple</code> output file:  <a href="./km-n10-e1e1t2-Efron-out.mw">km-n10-e1e1t2-Efron-output.mw</a>)  </p>
+<hr>
+<h2>License</h2>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+<a property="dct:title" rel="cc:attributionURL" href="https://github.com/justineuro/KM-bias">KM-bias</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://justineuro.github.io/">Justine Leon A. Uro</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/></a><br/>Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/justineuro/KM-bias" rel="dct:source">KM-bias</a>.
+</p>
+
+</body>
+</html>
