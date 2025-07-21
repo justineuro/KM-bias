@@ -8,7 +8,7 @@ Please use the following link below pointing to a [Binder](https://mybinder.org)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/justineuro/KM-bias/9e36a2b2b553672faabffa341ff810520907672d?urlpath=lab%2Ftree%2Fkm-n5-e1e1t1.ipynb)
   
 `Jupyter` notebook files for $`n=5,\ T=1.0`$:  
-(`Jupyter` input file: [km-n5-e1e1t1.ipynb](./km-n10-e1e1t1.ipynb); `Jupyter` output file:  [km-n5-e1e1t1-out.ipynb](./km-n10-e1e1t1-out.ipynb))  
+(`Jupyter` input file: [km-n5-e1e1t1.ipynb](./km-n5-e1e1t1.ipynb); `Jupyter` output file:  [km-n5-e1e1t1-out.ipynb](./km-n5-e1e1t1-out.ipynb))  
 
 ---
 
