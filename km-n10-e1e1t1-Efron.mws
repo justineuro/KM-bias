@@ -1,0 +1,94 @@
+###
+# Calculation of the small-sample bias of the Kaplan-Meier (KM) Estimator (Efron and Gill versions) for: 
+# N=10, T=1.0, 
+# f(x) = exp(-x), failure times p.d.f.
+# g(y) = exp(-y), censoring times p.d.f. 
+# Published values: Mean KM-Efron=0.3340, Bias=-0.0339 (Chen et al., 1981).
+# Similar to the Malple V code discussed in the article "Exact Calculation of the Kaplan-Meier Bias Using 
+# Maple Software" (Gillespie, B. and J. Uro, 1993) that appeared in "Mathematical Computation with Maple V: 
+# Ideas and Applications" (Proceedings of the 1993 Maple Summer Workshop and Symposium).
+###
+
+N:=10;
+T:=1.0;
+f(t):=exp(-t);
+g(t):=exp(-t);
+ux:=infinity:
+uy:=infinity:
+
+pdf1:=proc(x) f(x) end: 
+pdf2:=proc(y) g(y) end:
+
+fa:=proc(t) diff(int(int(pdf1(x)*pdf2(y),x=y..uy),y=0..t),t) end:
+fb:=proc(t) diff(int(int(pdf1(x)*pdf2(y),y=x..ux),x=0..t),t) end:
+fab:=proc(t) fa(t)+fb(t) end:
+
+Gshat:=1:
+sumKME:=0:
+KM_Efron:=0:
+
+# Case 1: i = 0, X_k, Y_k > t
+cdf1:=proc(x) integrate(pdf1(t), t=0..x) end:
+cdf2:=proc(y) integrate(pdf2(t), t=0..y) end:
+Pr:=(1 - cdf1(t))^N*(1 - cdf2(t))^N:
+sumKME:= sumKME + Gshat * Pr:
+"i ", "j ", "bj ", "Gshat ", "Pr ", "incKME ", "sumKME ";
+print(0,0,"xx",Gshat, evalf(subs(t=T,Pr)), evalf(subs(t=T, Gshat*Pr)), evalf(subs(t=T, sumKME)));
+
+for i from 1 to N do
+	incKME:=0:
+	for j from 0 to (2^i)-1 do
+		bj:=convert(j,binary):
+		lbj:=length(bj):
+		if j=0 then lbj:=1 fi:
+		p:=1:
+		Gshat:=1:
+		
+		for k1 from 1 to i-lbj do
+			p:=int(p*fa(cat(t,k1)),cat(t,k1)=0..(cat(t,k1+1)))
+		od:
+		
+		for k2 from i-lbj+1 to i do
+			d:=substring(cat(q,bj),(k2-i+lbj+1)..(k2-i+lbj+1),string):
+			if d="0" then
+				fs:=fa(cat(t,k2)):
+			else
+				fs:=fb(cat(t,k2)):
+				Gshat:=Gshat*((N-k2)/(N-k2+1)):
+			fi:
+			if k2<i then
+				p:=int(p*fs,cat(t,k2)=0..cat(t,k2+1)):
+			elif k2=i then
+				p:=int(p*fs,cat(t,i)=0..t):
+			fi:
+		od:
+		
+		for k3 from i+1 to N do
+			if k3<N then
+				p:=int(p*fab(cat(t,k3)),cat(t,k3)=t..cat(t,k3+1)):
+			else
+				p:=int(p*fab(cat(t,N)),cat(t,N)=t..infinity):
+			fi:
+		od:
+		
+		Pr:=N!*p:
+		incKME:=Pr*Gshat:
+		sumKME := sumKME + incKME:
+		print(i," ", j, " ", bj, " ", Gshat, " ", evalf(subs(t=T,Pr)), " ", evalf(subs(t=T,incKME)), " ", evalf(subs(t=T,sumKME)));
+	od:
+	
+	# Store the KM-Efron after i=N-1 
+	if i=N-1 then 
+		KM_Efron:=sumKME: 
+		printf("KM-Efron = %a\n", evalf(subs(t = T, sumKME)));
+	fi:
+od:
+
+print('``');
+printf("For N = %a, at T = %a: \n", N, T);
+printf("S(T) = %a\n", evalf(f(T)));
+printf("KM-Efron = %a\n", evalf(subs(t = T, KM_Efron)));
+printf("KM-Gill = %a\n", evalf(subs(t = T, sumKME)));
+printf("Bias (Efron) = KM-Efron - S(T) = %+1.4f\n", evalf(subs(t = T, KM_Efron) - f(T)));
+printf("Bias (Gill) = KM-Gill - S(T) = %+1.4f\n", evalf(subs(t = T, sumKME) - f(T)));
+
