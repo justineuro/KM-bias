@@ -5,15 +5,15 @@
 <meta name="generator" content="ReText 8.0.0">
 <title>README-parens</title>
 <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  config: ["MMLorHTML.js"],
-  jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS", "output/NativeMML"],
-  extensions: ["MathMenu.js", "MathZoom.js"],
-  TeX: {
-    extensions: ["AMSmath.js", "AMSsymbols.js"],
-    equationNumbers: {autoNumber: "AMS"}
+MathJax = {
+  tex: {
+    packages: ["base","require","enclose",], 
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true,
   }
-});
+};
+
 </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script></head>
 <body>
