@@ -21,7 +21,7 @@ Expected Lifetime: $`\exp(-0.5) = 0.6065306597126334 `$
 Estimator | Estimated Expected Value | Bias
 ---|---|---
 Efron | $` 0.6048530839301303`$ | $`-0.00167757578250316`$
-Gill | $`0.6066478084305761`$ | $`\hspace{14px}0.00011714871794266`$
+Gill | $`0.6066478084305761`$ | $`\hspace{12px}0.00011714871794266`$
 
 (`Maxima` input file: [km-n10-e1e1t05.mac](./km-n10-e1e1t05.mac); `Maxima` output file:  [km-n10-e1e1t05-output.mac](./km-n10-e1e1t05-output.mac))  
 (`Maple` input file: [km-n10-e1e1t05-Efron.mws](./km-n10-e1e1t05-Efron.mws); `Maple` output file:  [km-n10-e1e1t05-Efron-output.mw](./km-n10-e1e1t05-Efron-out.mw))  
@@ -37,7 +37,7 @@ Expected Lifetime: $`\exp(-1.0) = 0.36787944117144233 `$
 Estimator | Estimated Expected Value | Bias
 ---|---|---
 Efron | $` 0.3339997005016279`$ | $`-0.03387974066981442`$
-Gill | $`0.37515976194249184`$ | $`\hspace{14px}0.007280320771049509`$
+Gill | $`0.37515976194249184`$ | $`\hspace{12px}0.007280320771049509`$
   
 (`Maxima` input file: [km-n10-e1e1t1.mac](./km-n10-e1e1t1.mac); `Maxima` output file:  [km-n10-e1e1t1-output.mac](./km-n10-e1e1t1-output.mac))  
 (`Maple` input file: [km-n10-e1e1t1-Efron.mws](./km-n10-e1e1t1-Efron.mws); `Maple` output file:  [km-n10-e1e1t1-Efron-output.mw](./km-n10-e1e1t1-Efron-out.mw))  
@@ -53,7 +53,7 @@ Expected Lifetime: $`\exp(-2.0) = 0.1353352832366127 `$
 Estimator | Estimated Expected Value | Bias
 ---|---|---
 Efron | $` 0.06114801462318425`$ | $`-0.07418726861342845`$
-Gill | $`0.20760745229019978`$ | $`\hspace{14px}0.07227216905358708`$
+Gill | $`0.20760745229019978`$ | $`\hspace{12px}0.07227216905358708`$
   
 (`Maxima` input file: [km-n10-e1e1t2.mac](./km-n10-e1e1t2.mac); `Maxima` output file:  [km-n10-e1e1t2-output.mac](./km-n10-e1e1t2-output.mac))  
 (`Maple` input file: [km-n10-e1e1t2-Efron.mws](./km-n10-e1e1t2-Efron.mws); `Maple` output file:  [km-n10-e1e1t2-Efron-output.mw](./km-n10-e1e1t2-Efron-out.mw))  
