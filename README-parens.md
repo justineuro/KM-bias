@@ -11,7 +11,6 @@ MathJax = {
 
 <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 
-# KM-bias
 
 This repository contains sample files (Maple, Maxima, and Python) that may be used for calculating the small-sample bias of the Kaplan-Meier Estimator. 
 
