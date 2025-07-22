@@ -1,6 +1,6 @@
 # KM-bias
 
-This repository contains sample files (Maple, Maxima, and Python) that may be used for calculating the small-sample bias of the Kaplan-Meier Estimator. 
+This repository contains sample files ([Maple](https://www.maplesoft.com/) codes, [Maxima](https://maxima.sourceforge.io/) codes, and [Jupyter Notebook](https://jupyter.org/)) that may be used for computing the small-sample bias of the [Kaplan-Meier estimator](https://en.wikipedia.org/wiki/Kaplan%E2%80%93Meier_estimator).  The codes are similar to the Malple V codes discussed in the article "Exact Calculation of the Kaplan-Meier Bias Using Maple Software" (Gillespie, B. and J. Uro, 1993) that appeared in _Mathematical Computation with Maple V: Ideas and Applications (Proceedings of the 1993 Maple Summer Workshop and Symposium)_, pp. 128-136.  
 
 ## For Python (Jupyter Notebook)
 Please use the following link below pointing to a [Binder](https://mybinder.org) server:  
