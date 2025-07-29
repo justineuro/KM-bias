@@ -4,7 +4,7 @@
 # f(x) = exp(-x), failure times p.d.f.
 # g(y) = exp(-y), censoring times p.d.f. 
 # Published values for N=10: Mean KM-Efron=0.3340, Bias=-0.0339 (Chen et al., 1981).
-# Similar to the Malple V code discussed in the article "Exact Calculation of the Kaplan-Meier Bias Using 
+# Similar to the Maple V code discussed in the article "Exact Calculation of the Kaplan-Meier Bias Using 
 # Maple Software" (Gillespie, B. and J. Uro, 1993) that appeared in "Mathematical Computation with Maple V: 
 # Ideas and Applications" (Proceedings of the 1993 Maple Summer Workshop and Symposium).
 ###
