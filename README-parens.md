@@ -12,7 +12,7 @@ MathJax = {
 <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 
 
-This repository contains sample files ([Maple](https://www.maplesoft.com/) codes, [Maxima](https://maxima.sourceforge.io/) codes, and [Jupyter Notebook](https://jupyter.org/)) that may be used for computing the small-sample bias of the [Kaplan-Meier estimator](https://en.wikipedia.org/wiki/Kaplan%E2%80%93Meier_estimator).  The codes are similar to the Malple V codes discussed in the article "Exact Calculation of the Kaplan-Meier Bias Using Maple Software" (Gillespie, B. and J. Uro, 1993) that appeared in _Mathematical Computation with Maple V: Ideas and Applications (Proceedings of the 1993 Maple Summer Workshop and Symposium)_, pp. 128-136.  
+This repository contains sample files ([Maple](https://www.maplesoft.com/) codes, [Maxima](https://maxima.sourceforge.io/) codes, and [Jupyter Notebook](https://jupyter.org/)) that may be used for computing the small-sample bias of the [Kaplan-Meier estimator](https://en.wikipedia.org/wiki/Kaplan%E2%80%93Meier_estimator).  The codes are similar to the Maple V codes discussed in the article "Exact Calculation of the Kaplan-Meier Bias Using Maple Software" (Gillespie, B. and J. Uro, 1993) that appeared in _Mathematical Computation with Maple V: Ideas and Applications (Proceedings of the 1993 Maple Summer Workshop and Symposium)_, pp. 128-136.  
 
 ## For Python (Jupyter Notebook)
 Please use the following link below pointing to a [Binder](https://mybinder.org) server:  
@@ -69,6 +69,15 @@ Gill | \\(0.20760745229019978\\) | \\(\hspace{12px}0.07227216905358708\\)
   
 (`Maxima` input file: [km-n10-e1e1t2.mac](https://raw.githubusercontent.com/justineuro/KM-bias/refs/heads/main/km-n10-e1e1t2.mac); `Maxima` output file:  [km-n10-e1e1t2-output.mac](https://raw.githubusercontent.com/justineuro/KM-bias/refs/heads/main/km-n10-e1e1t2-output.mac))  
 (`Maple` input file: [km-n10-e1e1t2-Efron.mws](https://raw.githubusercontent.com/justineuro/KM-bias/refs/heads/main/km-n10-e1e1t2-Efron.mws); `Maple` output file:  [km-n10-e1e1t2-Efron-output.mw](https://raw.githubusercontent.com/justineuro/KM-bias/refs/heads/main/km-n10-e1e1t2-Efron-out.mw))  
+
+
+---
+
+#### Acknowledgments: 
+Many thanks to:
+
+* [GitHub](https://github.com/) for hosting the project.
+* [OpenAI](https://openai.com/): [ChatGPT](https://chatgpt.com/) was used to rewrite the Maple codes to Maxima codes.  Please access the public ChatGPT session at: [URL](https://chatgpt.com/share/https://chatgpt.com/c/68724179-6f48-8002-ac4f-0f1a4c762cdb), for more info. 
 
 ---
 
