@@ -64,7 +64,7 @@ Gill | $`0.20760745229019978`$ | $`\hspace{12px}0.07227216905358708`$
 Many thanks to:
 
 * [GitHub](https://github.com/) for hosting the project.
-* [OpenAI](https://openai.com/): [ChatGPT](https://chatgpt.com/) was used to rewrite the Maple codes to Maxima codes.  Please access the public ChatGPT session at: [URL](https://chatgpt.com/share/6888770b-6ee8-8002-93aa-7a4ec4705182), for more info. 
+* [OpenAI](https://openai.com/): [ChatGPT](https://chatgpt.com/) was used to rewrite the Maple codes to Maxima codes.  Please access the public ChatGPT session at: [URL](https://chatgpt.com/share/68690057-0dc4-8002-a554-71a615f8a91b), for more info. 
 
 ---
 
